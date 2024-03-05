@@ -36,6 +36,45 @@ function PostProvider({ children }) {
   }
 
   const value = useMemo(() => {
+    //     Now, I'm showing you this
+    // because if you have many, many components
+    // that are subscribed to a context
+    // so that read data from a context
+    // it will become problematic
+    // to have so many different variables
+    // inside the context value.
+    // Because as soon as you change one of these states
+    // for example, the post or the search Query
+    // then all of the components that read
+    // at least one of these five values will get re-rendered.
+    // And so, again, this is not ideal
+    // and it's the reason why in the beginning I told you
+    // that we usually create one context per state.
+    // So we would have one post context
+    // and one search Query context.
+    // And so, in that situation, whenever we updated
+    // for example, the search Query, then all the components
+    // that consume the posts would not get re-rendered.
+    // While in this case, all of them are
+    // because it is enough for one value here to change
+    // to re-render the entire thing.
+    // Now, I'm not gonna do that right here, but again
+    // you can basically create one context
+    // for this part and one context for this.
+    // And then, what some people do
+    // is to even take it one step further.
+    // So inside the search Query context
+    // you could even create one context only for the search Query
+    // and one only for the state, update or function.
+    // Or if you're using a reducer
+    // you could then create one context
+    // for the state and one context for the dispatch function.
+    // And again, I cannot really show you that here
+    // in this example because it'll depend so much
+    // on your own situation
+    // so, on your own application that you're building.
+    // So these were just a few general guidelines
+    // that I hope will become useful for you in the future.
     return {
       posts: searchedPosts,
       onAddPost: handleAddPost,
