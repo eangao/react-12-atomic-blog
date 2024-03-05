@@ -32,6 +32,17 @@ function App() {
 
       {/* // 2) PROVIDE VALUE TO CHILD COMPONENTS */}
       <PostProvider>
+        {/* remember that we are already doing that optimization
+        where we pass the children into the component.
+        So what we render here, are simply the children
+        that we pass in.
+        So, these components right here.
+        And so, remember from earlier
+        that this makes it so
+        that these children are not all automatically re-rendered
+        because they were already created
+        before they were actually passed
+        into this provider component. */}
         <Header />
         <Main />
         <Archive />

@@ -62,6 +62,23 @@ function App() {
           {isFakeDark ? "☀️" : "🌙"}
         </button>
 
+        {/* yeah, so remember how earlier this is what we had.
+        So we had these children here directly inside
+        the post context provider
+        and then all of these children right here
+        would also automatically have been re-rendered
+        as we changed the state inside that context. */}
+
+        {/* So basically what we did earlier
+        which is to wrap this component
+        and the main and the footer all into a memo.
+        So memorizing those components
+        so that they don't automatically re-render
+        once we update the state in the context.
+        So that's one of the guidelines that I can give you.
+        So doing either this technique with the children
+        or to memorize the direct descendants of the context. */}
+
         <Header />
         <Main />
         <Archive />
